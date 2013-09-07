@@ -28,5 +28,12 @@ class NeuronSpec extends TestKit(ActorSystem("NeuronTest")) with DefaultTimeout 
         expectMsg(0.5)
       }
     }
+
+    "calculate an error of 0" in {
+      within(500 millis) {
+        neuronRef ! Error(0.5)
+        expectMsg(0.0)
+      }
+    }
   }
 }
