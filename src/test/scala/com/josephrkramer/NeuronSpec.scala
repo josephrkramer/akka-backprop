@@ -19,12 +19,12 @@ class NeuronSpec extends TestKit(ActorSystem("NeuronTest")) with DefaultTimeout 
     shutdown(system)
   }
 
-  val neuronRef = system.actorOf(Props(classOf[Neuron], Array(1.0, 1.0)))
+  val neuronRef = system.actorOf(Props(classOf[Neuron], Weights(1.0, 1.0)))
 
   "A Neuron" should {
     "Respond with the weighted sum" in {
       within(500 millis) {
-        neuronRef ! Array(0.0, 0.0)
+        neuronRef ! Inputs(0.0, 0.0)
         expectMsg(0.5)
       }
     }
