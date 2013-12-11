@@ -16,14 +16,14 @@ case class Neuron(weights: Weights) extends Actor {
   }
 }
 
-case class Inputs(values: Array[Double])
+case class Inputs(values: List[Double])
 object Inputs {
-  def apply(values: Double*) = new Inputs(values.toArray)
+  def apply(values: Double*) = new Inputs(values.toList)
 }
 
-case class Weights(values: Array[Double])
+case class Weights(values: List[Double])
 object Weights {
-  def apply(values: Double*) = new Weights(values.toArray)
+  def apply(values: Double*) = new Weights(values.toList)
 }
 
 case class Error(value: Double)
